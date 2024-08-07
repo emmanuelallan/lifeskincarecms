@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "why_choose_uses",
+  "info": {
+    "singularName": "why-choose-us",
+    "pluralName": "why-choose-uses",
+    "displayName": "Why choose us",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}
