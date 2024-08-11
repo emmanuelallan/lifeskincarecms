@@ -949,6 +949,38 @@ export interface ApiSocialSocial extends Schema.CollectionType {
   };
 }
 
+export interface ApiSpecialOfferSpecialOffer extends Schema.CollectionType {
+  collectionName: 'special_offers';
+  info: {
+    singularName: 'special-offer';
+    pluralName: 'special-offers';
+    displayName: 'special-offer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    cover_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    details: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::special-offer.special-offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::special-offer.special-offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTeamTeam extends Schema.CollectionType {
   collectionName: 'teams';
   info: {
@@ -1062,6 +1094,7 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::service.service': ApiServiceService;
       'api::social.social': ApiSocialSocial;
+      'api::special-offer.special-offer': ApiSpecialOfferSpecialOffer;
       'api::team.team': ApiTeamTeam;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::why-choose-us.why-choose-us': ApiWhyChooseUsWhyChooseUs;
